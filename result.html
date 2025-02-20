@@ -5,9 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>分析結果 - URLスカウター</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/analyze.js"></script>
     <script src="js/result.js"></script>
   </head>
   <body>
-    <!-- 既存のHTML構造はそのまま -->
+    <div class="container">
+      <header>
+        <h1>分析結果</h1>
+        <p class="subtitle">Webサイトの総合評価</p>
+      </header>
+
+      <main>
+        <div class="result-container">
+          <section class="url-section">
+            <h2>分析対象URL</h2>
+            <div class="analyzed-url">
+              <a href="" target="_blank"></a>
+            </div>
+          </section>
+
+          <div class="score-grid">
+            <div class="score-item">
+              <h3>集客（SEO）評価</h3>
+              <div class="score-content">
+                <div class="stars"></div>
+                <div class="score-details">
+                  <p class="comment"></p>
+                  <ul class="check-points">
+                    <!-- チェックポイントはJSで動的に追加 -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="score-item">
+              <h3>コンテンツ評価</h3>
+              <div class="score-content">
+                <div class="stars"></div>
+                <div class="score-details">
+                  <p class="comment"></p>
+                  <ul class="check-points"></ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="score-item">
+              <h3>デザイン評価</h3>
+              <div class="score-content">
+                <div class="stars"></div>
+                <div class="score-details">
+                  <p class="comment"></p>
+                  <ul class="check-points"></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <a href="index.html" class="back-button">← トップページに戻る</a>
+            <button class="share-button" onclick="shareResults()">
+              結果をシェア
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
