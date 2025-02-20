@@ -130,4 +130,47 @@ function getCheckPoints(title, score) {
   return score > 3 ? points[title].good : points[title].improve;
 }
 
+// シェア機能の実装を追加
+function shareResults() {
+  const url = document.querySelector(".analyzed-url a").href;
+  const text = generateShareText();
+
+  // シェアURLの作成
+  const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+    text
+  )}&url=${encodeURIComponent(url)}`;
+
+  // 新しいウィンドウでTwitterシェア画面を開く
+  window.open(shareUrl, "_blank", "width=550,height=420");
+}
+
+function generateShareText() {
+  const scores = {
+    seo:
+      document
+        .querySelector(".score-item:nth-child(1) .stars")
+        .textContent.split("★").length - 1,
+    content:
+      document
+        .querySelector(".score-item:nth-child(2) .stars")
+        .textContent.split("★").length - 1,
+    design:
+      document
+        .querySelector(".score-item:nth-child(3) .stars")
+        .textContent.split("★").length - 1,
+  };
+
+  return (
+    `URLスカウターで分析しました！\n\n` +
+    `SEO評価: ${"★".repeat(scores.seo)}${"☆".repeat(5 - scores.seo)}\n` +
+    `コンテンツ評価: ${"★".repeat(scores.content)}${"☆".repeat(
+      5 - scores.content
+    )}\n` +
+    `デザイン評価: ${"★".repeat(scores.design)}${"☆".repeat(
+      5 - scores.design
+    )}\n\n` +
+    `#URLスカウター`
+  );
+}
+
 // 他の必要な関数も移植
