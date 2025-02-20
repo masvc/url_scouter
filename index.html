@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URLスカウター - Webサイト評価ツール</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>URLスカウター</h1>
+        <p class="subtitle">Webサイトの実力を測定！</p>
+      </header>
+
+      <main>
+        <div class="form-container">
+          <form id="urlForm" action="analyze.php" method="POST">
+            <div class="input-group">
+              <input
+                type="url"
+                name="url"
+                id="url"
+                placeholder="https://example.com"
+                required
+              />
+              <button type="submit">評価する</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="howto">
+          <h2>使い方</h2>
+          <ol>
+            <li>分析したいWebサイトのURLを入力</li>
+            <li>「評価する」ボタンをクリック</li>
+            <li>自動で3項目の分析が開始</li>
+            <li>各項目の評価（1〜5★）が表示されます</li>
+          </ol>
+        </div>
+
+        <div class="evaluation-criteria">
+          <h2>評価項目</h2>
+          <div class="criteria-grid">
+            <div class="criteria-item">
+              <h3>集客（SEO）</h3>
+              <p>メタタグ、構造化、モバイル対応など</p>
+            </div>
+            <div class="criteria-item">
+              <h3>コンテンツ</h3>
+              <p>情報の質、更新頻度、リソースなど</p>
+            </div>
+            <div class="criteria-item">
+              <h3>デザイン</h3>
+              <p>レスポンシブ対応、UI/UX、アクセシビリティなど</p>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>サイトを分析中...</p>
+      </div>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
